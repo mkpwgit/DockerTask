@@ -1,5 +1,8 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:21-jdk-slim
+# Use an official Ubuntu runtime as a parent image
+FROM ubuntu:latest
+
+# Install OpenJDK
+RUN apt-get update && apt-get install -y openjdk-21-jdk
 
 # Set the working directory in the container
 # WORKDIR /app

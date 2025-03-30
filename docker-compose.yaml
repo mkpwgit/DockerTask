@@ -4,9 +4,9 @@ services:
   nginx:
     image: vgerton/my-nginx:latest
     ports:
-      - "8082:80"
+      - "8888:80"
     deploy:
-      replicas: 5
+      replicas: 1
 
   db:
     image: vgerton/db:latest
@@ -25,6 +25,8 @@ services:
     image: vgerton/docker-task:latest
     ports:
       - "8080:8080"
+    env_file:
+      - app.env
     depends_on:
       db:
         condition: service_started
