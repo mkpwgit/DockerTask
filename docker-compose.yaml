@@ -14,10 +14,6 @@ services:
       - "5432:5432"
     env_file:
       - db.env
-    environment:
-      POSTGRES_DB: user_db
-      POSTGRES_USER: test_user
-      POSTGRES_PASSWORD: test_password
     networks:
       - my-network
 
