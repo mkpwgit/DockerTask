@@ -4,9 +4,27 @@ services:
   nginx:
     image: vgerton/my-nginx:latest
     ports:
-      - "8888:80"
-    deploy:
-      replicas: 1
+      - "8881:80"
+        
+  nginx2:
+    image: vgerton/my-nginx:latest
+    ports:
+      - "8882:80"
+        
+  nginx3:
+    image: vgerton/my-nginx:latest
+    ports:
+      - "8883:80"
+        
+  nginx4:
+    image: vgerton/my-nginx:latest
+    ports:
+      - "8884:80"
+        
+  nginx5:
+    image: vgerton/my-nginx:latest
+    ports:
+      - "8885:80"
 
   db:
     image: vgerton/db:latest
