@@ -1,41 +1,20 @@
-version: '3.8'
-
 services:
   nginx:
     image: vgerton/my-nginx:latest
     ports:
-      - "8881:80"
+      - "80"
+    deploy:
+      mode: replicated
+      replicas: 5
         
-  nginx2:
-    image: vgerton/my-nginx:latest
-    ports:
-      - "8882:80"
-        
-  nginx3:
-    image: vgerton/my-nginx:latest
-    ports:
-      - "8883:80"
-        
-  nginx4:
-    image: vgerton/my-nginx:latest
-    ports:
-      - "8884:80"
-        
-  nginx5:
-    image: vgerton/my-nginx:latest
-    ports:
-      - "8885:80"
-
   db:
     image: vgerton/db:latest
     ports:
       - "5432:5432"
     env_file:
       - db.env
-    networks:
-      - my-network
 
-  app:    
+  app:
     image: vgerton/docker-task:latest
     ports:
       - "8080:8080"
@@ -44,9 +23,3 @@ services:
     depends_on:
       db:
         condition: service_started
-    networks:
-      - my-network
-
-networks:
-  my-network:
-    driver: bridge
