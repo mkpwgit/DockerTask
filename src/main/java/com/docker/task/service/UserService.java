@@ -18,8 +18,8 @@ public class UserService {
     }
 
     /**
-     * Get all users
-     * @return List of users
+     * Get all users.
+     * @return List of users.
      */
     public List<User> getUsers() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false)
