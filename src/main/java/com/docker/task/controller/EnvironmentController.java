@@ -9,6 +9,8 @@ public class EnvironmentController {
 
     @RequestMapping("/name")
     public String getDevopsName() {
+        int magicNumber = 42;
+        System.out.println(magicNumber);
         return System.getenv("DEVOPS");
     }
 }
