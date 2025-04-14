@@ -1,27 +1,20 @@
-version: '3.8'
-
 services:
   nginx:
     image: vgerton/my-nginx:latest
     ports:
-      - "8888:80"
+      - "80"
     deploy:
-      replicas: 1
-
+      mode: replicated
+      replicas: 5
+        
   db:
     image: vgerton/db:latest
     ports:
       - "5432:5432"
     env_file:
       - db.env
-    environment:
-      POSTGRES_DB: user_db
-      POSTGRES_USER: test_user
-      POSTGRES_PASSWORD: test_password
-    networks:
-      - my-network
 
-  app:    
+  app:
     image: vgerton/docker-task:latest
     ports:
       - "8080:8080"
@@ -30,9 +23,3 @@ services:
     depends_on:
       db:
         condition: service_started
-    networks:
-      - my-network
-
-networks:
-  my-network:
-    driver: bridge

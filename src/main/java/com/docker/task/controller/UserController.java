@@ -19,6 +19,11 @@ public class UserController {
 
   @GetMapping
   public List<User> getUsers() {
+    try {
+      Thread.sleep(70000);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
     return userService.getUsers();
   }
 }
