@@ -17,6 +17,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Get all users
+     * @return List of users
+     */
     public List<User> getUsers() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false)
                 .map(entity -> new User(entity.getId(), entity.getName(), entity.getEmail()))
