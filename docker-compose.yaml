@@ -6,7 +6,7 @@ services:
     deploy:
       mode: replicated
       replicas: 5
-        
+
   db:
     image: vgerton/db:latest
     ports:
