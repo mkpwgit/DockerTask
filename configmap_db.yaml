@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: dv-env
+  name: db-env
 data:
   POSTGRES_DB: user_db
   POSTGRES_USER: test_user
