@@ -12,6 +12,8 @@ spec:
       labels:
         app: db
     spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
       containers:
         - name: db
           image: vgerton/db:latest
@@ -51,6 +53,8 @@ spec:
       labels:
         app: app
     spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
       containers:
         - name: app
           image: vgerton/docker-task:latest
