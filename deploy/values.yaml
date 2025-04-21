@@ -1,0 +1,24 @@
+app:
+  name: app2
+  image:
+    repository: vgerton/docker-task
+    tag: latest
+  replicas: 1
+  port: 8080
+  env:
+    DEVOPS: MIKALAI
+
+db:
+  name: db2
+  image:
+    repository: vgerton/db
+    tag: latest
+  replicas: 1
+  port: 5432
+  env:
+    POSTGRES_DB: user_db
+    POSTGRES_USER: test_user
+    POSTGRES_PASSWORD: test_password
+
+imagePullSecrets:
+  - name: dockerhub-secret
