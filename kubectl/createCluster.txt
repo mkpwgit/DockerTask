@@ -1,0 +1,17 @@
+eksctl create cluster \
+  --name my-cluster \
+  --region eu-central-1 \
+  --node-type t2.micro \
+  --nodes 4 \
+  --nodes-min 4 \
+  --nodes-max 5
+
+eksctl create nodegroup \
+  --cluster my-cluster \
+  --region eu-central-1 \
+  --name micro-nodes-1 \
+  --node-type t2.micro \
+  --nodes 1 \
+  --nodes-min 1 \
+  --nodes-max 1 \
+  --managed
